@@ -16,17 +16,18 @@
 %## Author: Hector Robles Martinez <hector@roblesm.mx>
 %## Created: 2025-04-02
 
-function results = jacobi_method(A, x, b)
+function [D, R] = diagonal_matrix(A)
   sizedata = size(A)(1);
-  D = zeros(size(A)(1), 1);
+  D = zeros(sizedata, sizedata);
+  R = zeros(sizedata, sizedata);
   for row=1:sizedata
     for col=1:sizedata
-      sum = 0;
-      if row!=col
-        sum = A(row, col) * x(col, 1);
+      if (row == col)
+        D(row, col) = A(row, col);
+      else
+        R(row, col) = A(row, col);
       endif
+      endfor
     endfor
-    D(row, 1) = (b(row)-sum)/A(row, row);
-  endfor
-  results = D;
+    return
 endfunction

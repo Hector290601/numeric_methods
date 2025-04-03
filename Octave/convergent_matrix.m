@@ -25,8 +25,8 @@ function [convergent_matrix_matrix, variables_matrix] = convergent_matrix (A)
   for row=1:sizedata
     for col=1:sizedata
       if(convergence_criterias(A))
-        convergent_matrix_matrix = A
-        variables
+        convergent_matrix_matrix = A;
+        variables_matrix = variables;
         return
       endif
       A=swap_col(A, col, col+1);

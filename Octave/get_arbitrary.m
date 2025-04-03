@@ -16,17 +16,12 @@
 %## Author: Hector Robles Martinez <hector@roblesm.mx>
 %## Created: 2025-04-02
 
-function results = jacobi_method(A, x, b)
+function arbitrary_values = get_arbitrary(A, B)
   sizedata = size(A)(1);
-  D = zeros(size(A)(1), 1);
+  C = zeros(size(B)(1), 1);
   for row=1:sizedata
-    for col=1:sizedata
-      sum = 0;
-      if row!=col
-        sum = A(row, col) * x(col, 1);
-      endif
-    endfor
-    D(row, 1) = (b(row)-sum)/A(row, row);
+    C(row, 1) = B(row, 1) / A(row, row);
   endfor
-  results = D;
+  arbitrary_values = C;
+  return
 endfunction

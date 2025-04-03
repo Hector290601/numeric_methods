@@ -37,7 +37,7 @@ function retval = get_user_matrix (MainQuesation)
         waitfor(msgbox(error.message))
       end_try_catch
     endwhile
-    number_cols = number_rows;
+    number_cols = 1;
     data = zeros(number_rows, number_cols);
     for count_rows=1:number_rows
       for count_cols=1:number_cols
